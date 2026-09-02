@@ -1,0 +1,59 @@
+{
+  "frameworkName": "und-wms Test Automation Framework",
+  "version": "1.0.0",
+  "architecture": "Behavior-Driven Development (BDD) with Page Object Model (POM)",
+  "technologyStack": {
+    "language": "TypeScript (ES2022)",
+    "testRunner": "Cucumber JS (@cucumber/cucumber v10)",
+    "browserAutomation": "Playwright (@playwright/test)",
+    "reportEngine": "Cucumber HTML Reporter",
+    "runtime": "Node.js v20+"
+  },
+  "modulesSupported": [
+    {
+      "moduleName": "WMS Login & Authentication",
+      "featureFile": "src/features/login.feature",
+      "stepDefinitions": "src/steps/login.steps.ts",
+      "pageObject": "src/pages/LoginPage.ts",
+      "scenarios": [
+        "Successful Login with Valid Credentials & Warehouse Selection",
+        "Failed Login with Invalid Password",
+        "Multi-Warehouse Role-Based Login Validation"
+      ]
+    },
+    {
+      "moduleName": "Inbound Warehouse Operations",
+      "featureFile": "src/features/inbound.feature",
+      "stepDefinitions": "src/steps/inbound.steps.ts",
+      "pageObject": "src/pages/InboundPage.ts",
+      "scenarios": [
+        "Inbound Purchase Order Goods Receipt and LPN Generation",
+        "Putaway Received LPN Items into Target Warehouse Bin",
+        "Handling Short Shipment and Damaged Inbound Items"
+      ]
+    }
+  ],
+  "components": {
+    "basePage": "src/pages/BasePage.ts",
+    "loginPage": "src/pages/LoginPage.ts",
+    "inboundPage": "src/pages/InboundPage.ts",
+    "hooks": "src/steps/hooks.ts",
+    "testData": "src/data/testData.json",
+    "reportGenerator": "src/utils/reportGenerator.ts",
+    "entryPoint": "src/index.ts",
+    "mockServer": "mock-wms/server.js"
+  },
+  "testDataSchemas": [
+    "users (admin, manager, operator)",
+    "warehouses (WH-MAIN-01, WH-EAST-02)",
+    "bins (BIN-A1-04, STAGING-01, DOCK-RECEIVING)",
+    "purchaseOrders (PO-2026-9901, PO-2026-9902)"
+  ],
+  "executionCommands": {
+    "fullSuite": "npm test",
+    "loginSuite": "npm run test:login",
+    "inboundSuite": "npm run test:inbound",
+    "generateHTMLReport": "npm run report",
+    "mockAppServer": "npm run test:mock"
+  }
+}

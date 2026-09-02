@@ -1,0 +1,38 @@
+{
+  "name": "und-wms-automation",
+  "version": "1.0.0",
+  "description": "BDD Test Automation Framework for und-wms (Login & Inbound Operations) using Playwright, Cucumber, and TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run start:mock-bg && cucumber-js --profile default || true",
+    "test:login": "cucumber-js --profile login",
+    "test:inbound": "cucumber-js --profile inbound",
+    "test:mock": "node mock-wms/server.js",
+    "report": "ts-node src/utils/reportGenerator.ts"
+  },
+  "keywords": [
+    "wms",
+    "playwright",
+    "cucumber",
+    "bdd",
+    "typescript",
+    "automation-framework",
+    "inbound-automation",
+    "login-automation"
+  ],
+  "author": "Antigravity",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^20.14.0",
+    "cucumber-html-reporter": "^5.5.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "playwright": "^1.45.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

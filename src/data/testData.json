@@ -1,0 +1,59 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "users": {
+    "validUser": {
+      "username": "wms_manager",
+      "password": "Password123!",
+      "warehouse": "WH-MAIN-01",
+      "role": "Inventory Manager"
+    },
+    "invalidUser": {
+      "username": "wms_operator",
+      "password": "WrongPassword!",
+      "warehouse": "WH-MAIN-01"
+    },
+    "operatorUser": {
+      "username": "wms_receiving_op",
+      "password": "Password123!",
+      "warehouse": "WH-EAST-02",
+      "role": "Inbound Operator"
+    }
+  },
+  "warehouses": [
+    { "id": "WH-MAIN-01", "name": "Main Distribution Center" },
+    { "id": "WH-EAST-02", "name": "East Coast Fulfillment Hub" }
+  ],
+  "inboundData": {
+    "standardPO": {
+      "poNumber": "PO-2026-9901",
+      "supplier": "Acme Electronics Corp",
+      "dockDoor": "DOCK-04",
+      "items": [
+        {
+          "sku": "SKU-BARCODE-1001",
+          "description": "Wireless Barcode Scanner v2",
+          "expectedQty": 50,
+          "receivedQty": 50,
+          "uom": "EA",
+          "targetBin": "BIN-A1-04"
+        }
+      ]
+    },
+    "damagedPO": {
+      "poNumber": "PO-2026-9902",
+      "supplier": "Global Logistics Supplies",
+      "dockDoor": "DOCK-02",
+      "items": [
+        {
+          "sku": "SKU-LABEL-2002",
+          "description": "Thermal Label Roll 4x6",
+          "expectedQty": 100,
+          "receivedQty": 90,
+          "damagedQty": 10,
+          "uom": "ROLL",
+          "targetBin": "BIN-B2-12"
+        }
+      ]
+    }
+  }
+}
