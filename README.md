@@ -1,4 +1,4 @@
-# 📦 und-wms BDD Test Automation Framework
+# 📦 Und-wms BDD Test Automation Framework
 
 An automated end-to-end Behavior-Driven Development (BDD) testing framework for **und-wms** (Warehouse Management System), built with **Playwright**, **Cucumber JS**, and **TypeScript**.
 
